@@ -1,9 +1,13 @@
+import Link from 'next/link'
 import React from 'react'
 import { ShoppingCart } from 'react-feather'
 
 const CartWidget = () => {
   return (
-	<div><ShoppingCart color='white' size={20} /></div>
+	<Link
+    href= {'/products/cart'}>
+    <ShoppingCart color='white' size={20} />
+  </Link>
   )
 }
 

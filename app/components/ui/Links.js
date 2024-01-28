@@ -20,7 +20,7 @@ const links = [
   {
     label: 'Productos',
     href: '/products/todos'
-  }
+  },
 ];
 
 const Links = () => {

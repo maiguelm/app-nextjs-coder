@@ -4,10 +4,10 @@ import ContactForm from "../components/ui/ContactForm";
 const Contact = () => {
   return (
     <>
-      <main className="container m-auto min-h-screen bg-slate-500">
-        <h1>Formulario de Contacto</h1>
+      <section className="container m-auto min-h-screen bg-slate-300 rounded">
+        <h1 className="p-6 text-center text-2xl font-bold underline text-slate-800">Formulario de Contacto</h1>
         <ContactForm />
-      </main>
+      </section>
     </>
   );
 };

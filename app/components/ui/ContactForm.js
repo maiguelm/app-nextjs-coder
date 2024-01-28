@@ -27,12 +27,12 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="container m-auto bg-slate-500">
+    <section className="container m-auto min-w-max">
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col justify-center items-center gap-8"
+        className="flex flex-col items-center gap-8"
       >
-        <div className="flex justify-between gap-10">
+        <div className="flex justify-between gap-16">
           <label className="text-lg font-bold">Nombre:</label>
           <input
             type="text"
@@ -42,7 +42,7 @@ const ContactForm = () => {
           />
         </div>
 
-        <div className="flex justify-between gap-10">
+        <div className="flex justify-between gap-16">
           <label className="text-lg font-bold">Correo Electrónico:</label>
           <input
             type="email"
@@ -52,9 +52,10 @@ const ContactForm = () => {
           />
         </div>
 
-        <div className="flex justify-between gap-10">
+        <div className="flex justify-between gap-16">
           <label className="text-lg font-bold">Mensaje:</label>
           <textarea
+            className="text-right"
             name="message"
             value={formData.message}
             onChange={handleChange}

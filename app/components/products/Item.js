@@ -9,10 +9,10 @@ const Item = ({ item }) => {
   };
 
   return (
-    <div className="border-solid border-slate-400 border-2 rounded flex flex-col items-center justify-center">
-      <h1>{item.nombre}</h1>
-      <h3>$ {item.precio}</h3>
-      <h4>{capitalizeFirstLetter(item.categoria)}</h4>
+    <div className="bg-slate-300 border-solid border-slate-400 border-2 rounded flex flex-col items-center justify-center">
+      <h1 className="text-xl font-semibold pt-2">{item.nombre}</h1>
+      <h3 className="text-lg font-medium font">$ {item.precio}</h3>
+      <h4 className="text-base">{capitalizeFirstLetter(item.categoria)}</h4>
 	  
       <Link href={`/products/detail/${item.slug}`}>
         <Image
@@ -22,7 +22,7 @@ const Item = ({ item }) => {
           height={300}
           style={{ objectFit: "contain" }}
         />
-        <p className="text-center">Comprar</p>
+        <p className="container m-auto max-w-max p-2 hover:text-slate-500">Leer más</p>
       </Link>
       <QtrSelector item={item} />
     </div>

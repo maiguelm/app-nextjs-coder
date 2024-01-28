@@ -14,7 +14,7 @@ const Products = ({ params }) => {
 	const { categoria } = params
 
   	return (
-		<main className='container m-auto'>
+		<section className='container m-auto'>
 			<h2 className='text-3xl p-4 border-b-4'>Nuestras Delicias!!!!</h2>
 
 			<div className='flex gap-8'> 
@@ -23,7 +23,7 @@ const Products = ({ params }) => {
 
 			</div>
 
-		</main>
+		</section>
   	)
 }
 
