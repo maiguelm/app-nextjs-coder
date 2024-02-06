@@ -7,16 +7,16 @@ const links = [
 		href: '/products/todos'
 	},
 	{
-		label: 'Viennosieries',
-		href: '/products/viennosieries'
+		label: 'Viennoiseries',
+		href: '/products/Viennoiseries'
 	},
 	{
 		label: 'Masitas',
-		href: '/products/masitas'
+		href: '/products/Masitas'
 	},
 	{
 		label: 'Postres',
-		href: '/products/postres'
+		href: '/products/Postres'
 	},
 ]
 

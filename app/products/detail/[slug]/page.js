@@ -1,15 +1,15 @@
-"use client";
 import QtrSelector from "@/app/components/products/QtrSelector";
 import { Button } from "@/app/components/ui/Button";
 import { mockData } from "@/data/data";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const ProductDetail = () => {
-  const pathname = usePathname();
+const ProductDetail = async ({ slug }) => {
 
-  const slug = pathname.replace("/products/detail/", "");
-  const item = mockData.find((product) => product.slug === slug);
+  const item = await fetch(`http://localhost:3000/api/product/detail/${slug}`, {
+    cache: "no-store",
+  })
+  
 
   if (!item) {
     return <div>Producto no encontrado</div>;
@@ -23,7 +23,7 @@ const ProductDetail = () => {
         <p className="text-center text-base">{item.descripcion}</p>
         <Image
           alt={item.nombre}
-          src={`/images/${item.imagen}`}
+          src={item.imagen}
           width={300}
           height={300}
           style={{ objectFit: "contain" }}
