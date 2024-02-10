@@ -3,15 +3,17 @@
 import { useState } from "react"
 import { Counter } from "../ui/Counter";
 import { Button } from "../ui/Button";
+import { useCartContextProvider } from "@/hooks/hooks";
+
 
 const QtrSelector = ({ item, className='' }) => {
 	const [quanty, setQuanty] = useState(0);
+	const { agregarProducto } = useCartContextProvider()
+
+
 
 	const handleAdd = () =>{
-		console.log({
-			...item,
-			quanty
-		})
+		agregarProducto({...item,quanty})
 	}
 
   return (

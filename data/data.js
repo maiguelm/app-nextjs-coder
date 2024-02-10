@@ -6,7 +6,7 @@ export const mockData = [
 		"precio": 250,
 		"descripcion": "Un verdadero Croissant de manteca, con un proceso de elaboracion de tres días",
 		"cantidad": 1,
-		"categoria": "viennosieries",
+		"categoria": "Viennoiseries",
 		"slug": "croissant-de-manteca-lemonies"
 	},
 	{
@@ -16,7 +16,7 @@ export const mockData = [
 		"precio": 280,
 		"descripcion": "Un delicioso Pain Aux Chocolat, una especialidad verdaderamente hojaldrada",
 		"cantidad": 1,
-		"categoria": "viennosieries",
+		"categoria": "Viennoiseries",
 		"slug": "pain-aux-chocolat-lemonies"
 	},
 	{
@@ -26,7 +26,7 @@ export const mockData = [
 		"precio": 350,
 		"descripcion": "Exisita Vionnoserie rellena de una compoa de manzanas y canela",
 		"cantidad": 0,
-		"categoria": "viennosieries",
+		"categoria": "Viennoiseries",
 		"slug": "chausson-viennosieries-de-manteca-lemonies"
 	},
 	{
@@ -36,7 +36,7 @@ export const mockData = [
 		"precio": 1250,
 		"descripcion": "Clásico postre elaborado con merengue, crema de leche,dulce de leche, piononos y nueces. Extra-sweet!",
 		"cantidad": 1,
-		"categoria": "postres",
+		"categoria": "Postres",
 		"slug": "postre-balcarce-lemonies"
 	},
 	{
@@ -46,7 +46,7 @@ export const mockData = [
 		"precio": 300,
 		"descripcion": "Otro clásico: el alfajor marplatense, relleno de dulce de leche y bañado en chocolate cobretura semi-amargo",
 		"cantidad": 1,
-		"categoria": "masitas",
+		"categoria": "Masitas",
 		"slug": "alfajo-masitas-lemonies"
 	},
 	{
@@ -57,7 +57,7 @@ export const mockData = [
 		"descripcion": "Exclusiva Caja de Tortitas, de seis unidades a eleccion! Se puede elegir entre varios sabores!",
 		"cantidad": 1,
 		"sabor": ["lemon pie", "coco", "valeria", "ricota","manzana", "frutilla"],
-		"categoria": "postres",
+		"categoria": "Postres",
 		"slug": "caja-tortitas-lemonies"
 	}
 ]

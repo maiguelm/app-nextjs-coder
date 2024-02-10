@@ -1,6 +1,5 @@
-import CategoryMenu from '@/app/components/products/CategoryMenu'
-import { ItemList } from '@/app/components/products/ItemList'
-import React from 'react'
+import CategoryMenu from "@/components/products/CategoryMenu"
+import { ItemList } from "@/components/products/ItemList"
 
 
 export async function generateMetadata({params, searchParams}, parent) {
