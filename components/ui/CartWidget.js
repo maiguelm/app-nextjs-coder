@@ -6,11 +6,14 @@ import { useCartContextProvider } from '@/hooks/hooks'
 const CartWidget = () => {
   const value = useCartContextProvider()
 
+  const spanValue = value.productos.length == 0 ? '' : value.productos.length
+
   return (
 	<Link
-    href= {'/products/cart'}>
+    className='flex flex-col items-center gap-1'
+    href= {'/cart'}>
     <ShoppingCart color='white' size={20} />
-    <span>{value.productos.length}</span>
+    <span>{spanValue}</span>
   </Link>
   )
 }

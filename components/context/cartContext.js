@@ -1,6 +1,6 @@
 'use client'
 import React from "react"
-import { createContext, useState, useEffect, useContext } from "react"
+import { createContext, useState, useEffect } from "react"
 
 export const CartContext = createContext()
 const { Provider } = CartContext
@@ -32,39 +32,42 @@ export function ContextCartProvider({ children }) {
         setCantidadTotal(0);
     };
 
-    const borrarProducto = (id) => {
-        const updatedCart = cart.filter((producto) => producto.id !== id);
+    const borrarProducto = (slug) => {
+        const updatedCart = cart.filter((producto) => producto.slug !== slug);
         setCart(updatedCart);
         setCantidadTotal(updatedCart.length);
     };
 
-    const agregarProducto = (producto, cantidad) => {
-        const existe = cart.find((productoCarrito) => productoCarrito.slug === producto.slug);
-        if(existe){
+    const agregarProducto = (item, quanty) => {
+        const existe = cart.find((productoCarrito) => productoCarrito.slug === item.slug);
+        if (existe) {
             setCart(cart.map((p) => {
-                if(p.slug === producto.slug){
-                    return{...existe
-                    }
-                } else return p
-            }))
+                if (p.slug === item.slug) {
+                    return { ...existe, quanty: existe.quanty + quanty };
+                } else return p;
+            }));
             
-            let suma = cantidad + cantidadTotal
-            setCantidadTotal(suma)
-            setTotal(total + producto.precio * cantidad)
-        
-        } else{
+            let suma = cantidadTotal + quanty;
+            setCantidadTotal(suma);
+            let totalProducto = item.precio * quanty;
+            setTotal(total + totalProducto);
+        } else {
             setCart([
                 ...cart,
-                { ...producto, cantidad }
-            ])
-            setTotal(total + producto.precio * cantidad)
-            setCantidadTotal(cantidadTotal + cantidad)
+                { ...item, quanty }
+            ]);
+            console.log(quanty)
+          let totalProducto = item.precio * quanty;
+          setTotal(total + totalProducto);
+          let suma = cantidadTotal + quanty;
+          setCantidadTotal(suma);
         }
-    }
+      };
+    
     
 
-    const removerProducto = (id) => {
-        const index = cart.findIndex((prod) => prod.id === id);
+    const removerProducto = (slug) => {
+        const index = cart.findIndex((prod) => prod.slug === slug);
 
         if (index !== -1) {
             const updatedCart = [...cart];
@@ -88,17 +91,24 @@ export function ContextCartProvider({ children }) {
     const calculoPrecio = () => {
         const precioFinal = cart.reduce((acc, prod) => acc + prod.precio * prod.cantidad, 0);
         setTotal(precioFinal);
+        return precioFinal
     };
+
+    const totalQty = () => {
+        return cart.reduce((acc, item) => acc + item.quantity, 0)
+    }
+
 
     const ContextValue = {
         productos: cart,
         total: total,
-         vaciarCarrito: vaciarCarrito,
+        vaciarCarrito: vaciarCarrito,
         agregarProducto: agregarProducto,
         borrarProducto: borrarProducto,
         calculoPrecio: calculoPrecio,
         removerProducto: removerProducto,
-        agregaProdUnidad: agregaProdUnidad
+        agregaProdUnidad: agregaProdUnidad,
+        totalQty: totalQty
     }
 
     return (
