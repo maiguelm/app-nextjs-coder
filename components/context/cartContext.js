@@ -1,4 +1,5 @@
 'use client'
+/* import { useLocalStorage } from "@/hooks/hooks" */
 import React from "react"
 import { createContext, useState, useEffect } from "react"
 
@@ -8,34 +9,35 @@ const { Provider } = CartContext
 export function ContextCartProvider({ children }) {
     const [cart, setCart] = useState([]);
     const [total, setTotal] = useState(0);
-    const [cantidadTotal, setCantidadTotal] = useState(0);
-
+    
+/* 
+    const [cart, setCart] = useLocalStorage('cart', []) */
+    
     useEffect(() => {
         const storageCart = JSON.parse(localStorage.getItem("cart"));
-        const storageCantidad = parseInt(localStorage.getItem("cantidad"));
         const storageTotal = parseFloat(localStorage.getItem("precioFinal"));
-
+    
+        console.log("storageCart:", storageCart);
+        console.log("storageTotal:", storageTotal);
+    
         setCart(storageCart);
-        setCantidadTotal(storageCantidad);
         setTotal(storageTotal);
-    }, []);
-
-    useEffect(() => {
+      }, []);
+    
+      useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart));
-        localStorage.setItem("cantidad", cantidadTotal.toString());
         localStorage.setItem("precioFinal", total.toString());
-    }, [cart, cantidadTotal, total]);
+      }, [cart, total]);
+
 
     const vaciarCarrito = () => {
         setCart([]);
         setTotal(0);
-        setCantidadTotal(0);
     };
 
     const borrarProducto = (slug) => {
         const updatedCart = cart.filter((producto) => producto.slug !== slug);
         setCart(updatedCart);
-        setCantidadTotal(updatedCart.length);
     };
 
     const agregarProducto = (item, quanty) => {
@@ -47,8 +49,6 @@ export function ContextCartProvider({ children }) {
                 } else return p;
             }));
             
-            let suma = cantidadTotal + quanty;
-            setCantidadTotal(suma);
             let totalProducto = item.precio * quanty;
             setTotal(total + totalProducto);
         } else {
@@ -59,8 +59,6 @@ export function ContextCartProvider({ children }) {
             console.log(quanty)
           let totalProducto = item.precio * quanty;
           setTotal(total + totalProducto);
-          let suma = cantidadTotal + quanty;
-          setCantidadTotal(suma);
         }
       };
     
@@ -73,7 +71,6 @@ export function ContextCartProvider({ children }) {
             const updatedCart = [...cart];
             updatedCart[index].cantidad = Math.max(1, updatedCart[index].cantidad - 1);
             setCart(updatedCart);
-            setCantidadTotal(cantidadTotal - 1);
         }
     };
 
@@ -84,7 +81,6 @@ export function ContextCartProvider({ children }) {
             const updatedCart = [...cart];
             updatedCart[index].cantidad += 1;
             setCart(updatedCart);
-            setCantidadTotal(cantidadTotal + 1);
         }
     };
 
@@ -100,7 +96,7 @@ export function ContextCartProvider({ children }) {
 
 
     const ContextValue = {
-        productos: cart,
+        cart: cart,
         total: total,
         vaciarCarrito: vaciarCarrito,
         agregarProducto: agregarProducto,
