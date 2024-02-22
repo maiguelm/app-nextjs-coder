@@ -1,11 +1,4 @@
-// 'use client'
-// import { useState, useEffect } from "react";
-// import QtrSelector from "@/app/components/products/QtrSelector";
-// import { Button } from "@/app/components/ui/Button";
 import Card from "@/components/products/Card";
-import Image from "next/image";
-
-
 
 const ProductDetail = ({ params }) =>{
 

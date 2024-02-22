@@ -1,4 +1,4 @@
-import { useContext, useCallback } from "react";
+import { useCallback } from "react";
 import { useCartContextProvider } from "@/hooks/hooks";
 import { Button } from "../ui/Button";
 import Image from "next/image";

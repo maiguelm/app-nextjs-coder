@@ -1,6 +1,5 @@
 "use client";
 
-
 export function Counter({ count, setCount }) {
   const increase = () => {
     setCount((prevCount) => prevCount + 1);

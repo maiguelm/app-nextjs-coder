@@ -1,0 +1,3 @@
+const [file, setFile] = useState(null);
+y esto en el onChange del input img
+onChange={(e) => setFile(e.target.files[0])}

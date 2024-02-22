@@ -1,5 +1,4 @@
 'use client'
-/* import { useLocalStorage } from "@/hooks/hooks" */
 import React from "react"
 import { createContext, useState, useEffect } from "react"
 
@@ -10,18 +9,16 @@ export function ContextCartProvider({ children }) {
     const [cart, setCart] = useState([]);
     const [total, setTotal] = useState(0);
     
-/* 
-    const [cart, setCart] = useLocalStorage('cart', []) */
-    
     useEffect(() => {
         const storageCart = JSON.parse(localStorage.getItem("cart"));
         const storageTotal = parseFloat(localStorage.getItem("precioFinal"));
     
         console.log("storageCart:", storageCart);
         console.log("storageTotal:", storageTotal);
-    
-        setCart(storageCart);
-        setTotal(storageTotal);
+        if(storageCart.length > 0){
+            setCart(storageCart);
+            setTotal(storageTotal);
+        }
       }, []);
     
       useEffect(() => {
