@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import CartWidget from './CartWidget';
+import UserWidget from './UserWidget';
 
 const links = [
   {
@@ -37,6 +38,7 @@ const Links = () => {
         </Link>
       ))}
       <CartWidget />
+      <UserWidget />
     </>
   );
 };
