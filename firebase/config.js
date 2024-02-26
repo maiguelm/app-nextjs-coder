@@ -2,13 +2,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from 'firebase/storage'
-import { getAuth } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider } from 'firebase/auth'
 
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyC8TIVYfUTGvqWNq13rnHK-waRSTYZTzMw",
   authDomain: "lemonies-f40a0.firebaseapp.com",
@@ -18,8 +13,8 @@ const firebaseConfig = {
   appId: "1:766029477710:web:a383130219717bd2f3101f"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app)
 export const storage = getStorage(app)
 export const auth = getAuth(app)
+export const googleProvider = new GoogleAuthProvider()

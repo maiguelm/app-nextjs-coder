@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { useAuthContextProvider } from "@/hooks/hooks";
+import { useRouter } from "next/navigation";
 
 const RegisterUserPage = () => {
 	const [values, setValues] = useState({
@@ -12,7 +13,8 @@ const RegisterUserPage = () => {
 		lastName: '',
 		birthDate: '',
 	  });
-
+	
+	const router = useRouter()
 	const { userRegister } = useAuthContextProvider();
 
 	const handleChange = (e) => {
@@ -29,6 +31,8 @@ const RegisterUserPage = () => {
 			admin: false,
 		  }; 
 		  userRegister(userData);
+		  router.push('auth')
+
 	};
 
 	return (

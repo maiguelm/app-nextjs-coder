@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
+
 const ProductsAdmin = async () => {
     const data = await fetch("http://localhost:3000/api/products/todos", {
         cache: "no-store",
     }).then(r => r.json());
+
 
     return (
         <>

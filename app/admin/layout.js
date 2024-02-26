@@ -7,6 +7,8 @@ const AdminLayout = ({ children, login }) => {
     const { user, logout } = useAuthContextProvider();
     const router = useRouter()
 
+    console.log(user)
+
     if(!user.logged){
         return(
             <>
