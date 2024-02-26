@@ -1,8 +1,12 @@
+import { CheckoutOrder } from '@/components/cart/Checkout'
 import React from 'react'
 
 const CheckoutPage = () => {
+
   return (
-	<div> CheckoutPage</div>
+    <main className="container m-auto">
+    <CheckoutOrder />
+  </main>
   )
 }
 
