@@ -16,8 +16,6 @@ const UserWidget = () => {
     setMenuOpen(false); 
   };
 
-  console.log(user)
-
   return (
     <>
       {user.logged ? (

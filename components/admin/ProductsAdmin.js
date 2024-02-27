@@ -1,9 +1,9 @@
-import Image from "next/image";
+/* import Image from "next/image";
 import Link from "next/link";
 
 
 const ProductsAdmin = async () => {
-    const data = await fetch("http://localhost:3000/api/products/todos", {
+    const data = await fetch("http://localhost:3000/api/products/", {
         cache: "no-store",
     }).then(r => r.json());
 
@@ -83,4 +83,4 @@ const ProductsAdmin = async () => {
     );
 };
 
-export default ProductsAdmin;
+export default ProductsAdmin; */

@@ -13,8 +13,6 @@ export function ContextCartProvider({ children }) {
         const storageCart = JSON.parse(localStorage.getItem("cart"));
         const storageTotal = parseFloat(localStorage.getItem("precioFinal"));
     
-        console.log("storageCart:", storageCart);
-        console.log("storageTotal:", storageTotal);
         if(storageCart.length > 0){
             setCart(storageCart);
             setTotal(storageTotal);
@@ -53,7 +51,7 @@ export function ContextCartProvider({ children }) {
                 ...cart,
                 { ...item, quanty }
             ]);
-            console.log(quanty)
+
           let totalProducto = item.precio * quanty;
           setTotal(total + totalProducto);
         }

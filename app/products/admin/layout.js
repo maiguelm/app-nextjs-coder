@@ -7,8 +7,6 @@ const AdminLayout = ({ children, login }) => {
     const { user, logout } = useAuthContextProvider();
     const router = useRouter()
 
-    console.log(user)
-
     if(!user.logged){
         return(
             <>
@@ -23,7 +21,7 @@ const AdminLayout = ({ children, login }) => {
         return (
             <div>
                 <h1 className="text-2xl text-center font-bold">Acceso no permitido</h1>
-                <Button onClick={() =>{ router.push('/admin'); logout()}}>Volver</Button>
+                <Button onClick={() =>{ router.push('/auth'); logout()}}>Volver</Button>
                 
             </div>
         );
