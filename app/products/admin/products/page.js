@@ -5,7 +5,7 @@ import React from "react";
 const ProductsTable = () => {
   return (
     <>
-      <ProductsAdmin />
+      {/* <ProductsAdmin /> */}
       <LogoutButton />
     </>
   );
