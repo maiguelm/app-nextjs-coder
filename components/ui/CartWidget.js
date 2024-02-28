@@ -6,7 +6,7 @@ import { useCartContextProvider } from '@/hooks/hooks'
 const CartWidget = () => {
   const value = useCartContextProvider()
 
-  const spanValue = value.cart.length == 0 ? '' : value.cart.length
+  const spanValue = 0
 
   return (
 	<Link
