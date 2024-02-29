@@ -19,7 +19,7 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`http://${process.env.VERCEL_URL}/api/contact`, {
+      const response = await fetch(`${process.env.VERCEL_URL}/contact`, {
         method: "POST",
         body: JSON.stringify(formData), 
         headers: {

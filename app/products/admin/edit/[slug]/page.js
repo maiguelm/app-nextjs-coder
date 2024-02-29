@@ -2,7 +2,7 @@ import EditForm from "@/components/admin/EditForm"
 
 const EditPage = async ({params}) => {
     const { slug } = params
-   const item = await fetch(`http://${process.env.VERCEL_URL}/api/products/product/${slug}`, {
+   const item = await fetch(`${process.env.VERCEL_URL}/products/product/${slug}`, {
         cache: 'no-store'
     }).then(res => res.json())
 

@@ -2,7 +2,7 @@ import Item from "./Item";
 
 export const ItemList = async ({ categoria }) => {
 
-  const items = await fetch(`http://${process.env.VERCEL_URL}/api/products/${categoria}`, {
+  const items = await fetch(`${process.env.VERCEL_URL}/products/${categoria}`, {
     cache: "no-store",
   }).then((r) => r.json());
 

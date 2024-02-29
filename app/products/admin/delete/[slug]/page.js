@@ -3,7 +3,7 @@ import DeleteForm from "@/components/admin/DeleteForm"
 
 const EditPage = async ({params}) => {
     const { slug } = params
-   const item = await fetch(`http://${process.env.VERCEL_URL}/api/products/product/${slug}`, {
+   const item = await fetch(`${process.env.VERCEL_URL}/products/product/${slug}`, {
         cache: 'no-store'
     }).then(res => res.json())
 

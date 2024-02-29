@@ -5,7 +5,7 @@ import QtrSelector from "./QtrSelector";
 
 const Card = async ({ slug }) => {
   
-  const item = await fetch(`http://${process.env.VERCEL_URL}/api/products/product/${slug}`, {
+  const item = await fetch(`${process.env.VERCEL_URL}/products/product/${slug}`, {
     cache: "no-store"}
     ).then((res) => res.json());
 
