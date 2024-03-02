@@ -16,12 +16,36 @@ const ContactForm = () => {
     });
   };
 
+  /*  const handleSubmit = async (e) => {
+     e.preventDefault();
+     try {
+       const response = await fetch(`${process.env.VERCEL_URL}/contact`, {
+         method: "POST",
+         body: JSON.stringify(formData), 
+         headers: {
+           "Content-Type": "application/json",
+         },
+       });
+       const data = await response.json();
+       console.log(data);
+       e.target.reset();
+       setFormData({
+         name: "",
+         email: "",
+         message: "",
+       });
+     } catch (error) {
+       console.error("Error:", error);
+     }
+   }; */
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
+    
       const response = await fetch(`${process.env.VERCEL_URL}/contact`, {
         method: "POST",
-        body: JSON.stringify(formData), 
+        body: JSON.stringify(formData),
         headers: {
           "Content-Type": "application/json",
         },
@@ -34,9 +58,7 @@ const ContactForm = () => {
         email: "",
         message: "",
       });
-    } catch (error) {
-      console.error("Error:", error);
-    }
+   
   };
 
   return (

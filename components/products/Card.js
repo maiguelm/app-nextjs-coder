@@ -22,6 +22,7 @@ const Card = async ({ slug }) => {
           width={300}
           height={300}
           style={{ objectFit: "contain" }} 
+          priority={true}
         />
         <QtrSelector className="pb-4 gap-3" item={item} />
       </div>
