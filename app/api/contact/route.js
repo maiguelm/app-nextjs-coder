@@ -8,7 +8,5 @@ export async function POST(request){
 	const sendForm = addDoc(formDB, formData)
 
 
-	console.log(formData)
-
 	return NextResponse.json("Mensaje enviado")
  }

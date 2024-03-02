@@ -16,7 +16,7 @@ const ContactForm = () => {
     });
   };
 
-  /*  const handleSubmit = async (e) => {
+   const handleSubmit = async (e) => {
      e.preventDefault();
      try {
        const response = await fetch(`${process.env.VERCEL_URL}/contact`, {
@@ -37,10 +37,10 @@ const ContactForm = () => {
      } catch (error) {
        console.error("Error:", error);
      }
-   }; */
+   };
 
 
-  const handleSubmit = async (e) => {
+  /* const handleSubmit = async (e) => {
     e.preventDefault();
     
       const response = await fetch(`${process.env.VERCEL_URL}/contact`, {
@@ -60,7 +60,7 @@ const ContactForm = () => {
       });
    
   };
-
+ */
   return (
     <div className="flex justify-center">
       <form className="w-full max-w-md" onSubmit={handleSubmit}>

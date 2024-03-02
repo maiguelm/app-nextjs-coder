@@ -1,4 +1,4 @@
-/* import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 
 
@@ -84,8 +84,8 @@ const ProductsAdmin = async () => {
 };
 
 export default ProductsAdmin;
-  */
-
+ 
+/* 
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/config";
 import Image from "next/image";
@@ -185,3 +185,4 @@ export async function getServerSideProps() {
 }
 
 export default ProductsAdmin;
+ */
