@@ -18,7 +18,6 @@ const Item = ({ item }) => {
           width={300}
           height={300}
           style={{ objectFit: "contain" }}
-          priority={true}
         />
         <p className=" text-center text-base p-6 max-w-md">Leer mas...</p>
         </Link>
