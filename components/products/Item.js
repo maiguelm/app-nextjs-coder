@@ -12,13 +12,13 @@ const Item = ({ item }) => {
       <h3 className="text-lg font-medium font">$ {item.precio}</h3>
       <h4 className="text-base">{item.categoria}</h4>
       <Link href={`/products/product/${item.slug}`}> 
-{/*         <Image
+        <Image
           alt={item.nombre}
           src={item.imagen}
           width={300}
           height={300}
           style={{ objectFit: "contain" }}
-        /> */}
+        />
         <p className=" text-center text-base p-6 max-w-md">Leer mas...</p>
         </Link>
 

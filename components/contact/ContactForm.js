@@ -9,6 +9,8 @@ const ContactForm = () => {
     message: "",
   });
 
+  const apiUrl = "/api/contact";
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -19,9 +21,9 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${process.env.VERCEL_URL}/contact`, {
+      const response = await fetch(apiUrl, {
         method: "POST",
-        body: JSON.stringify(formData), 
+        body: JSON.stringify(formData),
         headers: {
           "Content-Type": "application/json",
         },

@@ -26,7 +26,7 @@ const UserWidget = () => {
           {menuOpen && (
             <ul className="absolute right-0 mt-2 w-36 bg-white rounded shadow-lg">
               <li>
-                <Link href="/edit-profile" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Editar usuario
+                <Link href="/auth/edit" className="block px-4 py-2 text-gray-800 hover:bg-gray-200">Editar usuario
                 </Link>
               </li>
               <li>

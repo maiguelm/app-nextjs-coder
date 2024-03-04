@@ -14,39 +14,42 @@ export function ContextAuthProvider({ children }) {
 		email: null,
 		displayName: null,
 		uid: null,
-		admin: false
+		admin: false,
+		firstName: null,
+		lastName: null,
+		birthDate: null,
 	})
 
 	const userRegister = async (values) => {
 		const { email, password, firstName, lastName, birthDate, displayName, admin } = values;
 		try {
-		  const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-		  const user = userCredential.user;
-		  
-		  const userDocRef = doc(db, "users", user.uid);
-		  await setDoc(userDocRef, {
-			firstName,
-			lastName,
-			birthDate,
-			displayName,
-			admin,
-			email,
-			});
-	
-		  setUser({
-			logged: true,
-			email: user.email,
-			displayName: user.displayName,
-			uid: user.uid,
-			admin: false 
-		  });
-		} catch (error) {
-		  console.error("Error al registrar usuario:", error);
-		  throw error;
-		}
-	  };
+			const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+			const user = userCredential.user;
 
-	const isAdmin = async() =>{
+			const userDocRef = doc(db, "users", user.uid);
+			await setDoc(userDocRef, {
+				firstName,
+				lastName,
+				birthDate,
+				displayName,
+				admin,
+				email,
+			});
+
+			setUser({
+				logged: true,
+				email: user.email,
+				displayName: user.displayName,
+				uid: user.uid,
+				admin: false
+			});
+		} catch (error) {
+			console.error("Error al registrar usuario:", error);
+			throw error;
+		}
+	};
+
+	const isAdmin = async () => {
 		const docRef = doc(db, "users", user.uid)
 		const userDoc = await getDoc(docRef)
 		const adminStatus = userDoc.data().admin
@@ -57,12 +60,12 @@ export function ContextAuthProvider({ children }) {
 		await signInWithEmailAndPassword(auth, values.email, values.password)
 	}
 
-	const logout = async () =>{
+	const logout = async () => {
 		await signOut(auth)
 	}
 
 	const googleLogin = async () => {
-        await signInWithPopup(auth, googleProvider)
+		await signInWithPopup(auth, googleProvider)
 		setUser({
 			logged: true,
 			email: user.email,
@@ -70,7 +73,7 @@ export function ContextAuthProvider({ children }) {
 			uid: user.uid,
 			admin: false
 		})
-    }
+	}
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
@@ -84,7 +87,10 @@ export function ContextAuthProvider({ children }) {
 						displayName: authUser.displayName,
 						email: authUser.email,
 						uid: authUser.uid,
-						admin: userData.admin || false 
+						admin: userData.admin || false,
+						firstName: authUser.firstName,
+						lastName: authUser.lastName,
+						birthDate: authUser.birthDate
 					});
 				} else {
 					setUser({
@@ -92,7 +98,10 @@ export function ContextAuthProvider({ children }) {
 						displayName: authUser.displayName,
 						email: authUser.email,
 						uid: authUser.uid,
-						admin: false
+						admin: false,
+						firstName: authUser.firstName,
+						lastName: authUser.lastName,
+						birthDate: authUser.birthDate
 					});
 				}
 			} else {
@@ -101,23 +110,26 @@ export function ContextAuthProvider({ children }) {
 					email: null,
 					displayName: null,
 					uid: null,
-					admin: false
+					admin: false,
+					firstName: null,
+					lastName: null,
+					birthDate: null
 				});
 			}
 		});
-	
+
 		return () => unsubscribe();
 	}, []);
 
 	return (
-		<Provider value={{ 
+		<Provider value={{
 			user,
-			userRegister, 
-			loginUser, 
-			logout, 
+			userRegister,
+			loginUser,
+			logout,
 			isAdmin,
 			googleLogin
-			}}>
+		}}>
 			{children}
 
 		</Provider>

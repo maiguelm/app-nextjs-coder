@@ -16,13 +16,13 @@ const Card = async ({ slug }) => {
         <h2 className="text-lg font-medium font">$ {item.precio}</h2>
         <h2 className="text-base font-medium font">{item.categoria}</h2>
         <p className="text-center text-base">{item.descripcion}</p>
- {/*        <Image
+        <Image
           alt={item.nombre}
           src={item.imagen}
           width={300}
           height={300}
           style={{ objectFit: "contain" }} 
-        /> */}
+        />
         <QtrSelector className="pb-4 gap-3" item={item} />
       </div>
     </section>
