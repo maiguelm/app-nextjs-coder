@@ -74,7 +74,7 @@ export function ContextAuthProvider({ children }) {
 			admin: false
 		})
 	}
-
+	
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, async (authUser) => {
 			if (authUser) {
@@ -88,9 +88,9 @@ export function ContextAuthProvider({ children }) {
 						email: authUser.email,
 						uid: authUser.uid,
 						admin: userData.admin || false,
-						firstName: authUser.firstName,
-						lastName: authUser.lastName,
-						birthDate: authUser.birthDate
+						firstName: userData.firstName || '', // Asegúrate de que estos campos existan en tu base de datos
+						lastName: userData.lastName || '', // y son accesibles en la ubicación correcta
+						birthDate: userData.birthDate || ''
 					});
 				} else {
 					setUser({
@@ -99,9 +99,9 @@ export function ContextAuthProvider({ children }) {
 						email: authUser.email,
 						uid: authUser.uid,
 						admin: false,
-						firstName: authUser.firstName,
-						lastName: authUser.lastName,
-						birthDate: authUser.birthDate
+						firstName: '',
+						lastName: '',
+						birthDate: ''
 					});
 				}
 			} else {
@@ -117,7 +117,7 @@ export function ContextAuthProvider({ children }) {
 				});
 			}
 		});
-
+	
 		return () => unsubscribe();
 	}, []);
 

@@ -14,7 +14,11 @@ export function ContextCartProvider({ children }) {
         const storageTotal = parseFloat(localStorage.getItem("precioFinal"));
     
         if(storageCart?.length > 0){
-            setCart(storageCart);
+                const cleanedCart = storageCart.map(item => {
+                const { quanty, ...rest } = item;
+                return rest;
+            });
+            setCart(cleanedCart);
             setTotal(storageTotal);
         } 
       }, []);
