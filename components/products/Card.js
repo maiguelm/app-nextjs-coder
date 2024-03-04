@@ -5,9 +5,11 @@ import QtrSelector from "./QtrSelector";
 
 const Card = async ({ slug }) => {
   
-  const item = await fetch(`${process.env.VERCEL_URL}/products/product/${slug}`, {
-    cache: "no-store"}
-    ).then((res) => res.json());
+  const apiUrl = "https://app-nextjs-coder.vercel.app/api"; // Utiliza la URL base de tu API en Vercel
+  const item = await fetch(`${apiUrl}/products/product/${slug}`, {
+    cache: "no-store",
+  }).then((res) => res.json());
+  
 
   return (
     <section className="container m-auto p-8 bg-slate-300 min-h-screen">
