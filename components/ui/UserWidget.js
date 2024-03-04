@@ -26,7 +26,7 @@ const UserWidget = () => {
             {user.logged ? (
                 <div className="relative">
                     <button onClick={handleToggleMenu} className="flex items-center gap-1">
-                        <p>Hola {user.firstName}</p>
+                        <p>Hola {user.firstName || user.displayName}</p>
                     </button>
                     {menuOpen && (
                         <ul className="absolute right-0 mt-2 w-36 bg-white rounded shadow-lg">
