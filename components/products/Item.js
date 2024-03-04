@@ -11,16 +11,18 @@ const Item = ({ item }) => {
       <h1 className="text-xl font-semibold pt-2">{item.nombre}</h1>
       <h3 className="text-lg font-medium font">$ {item.precio}</h3>
       <h4 className="text-base">{item.categoria}</h4>
-      <Link href={`/products/product/${item.slug}`}> 
-        <Image
-          alt={item.nombre}
-          src={item.imagen}
-          width={300}
-          height={300}
-          style={{ objectFit: "contain" }}
-        />
-        <p className=" text-center text-base p-6 max-w-md">Leer mas...</p>
-        </Link>
+      <Link href={`/products/product/${item.slug}`}>
+        <div className="card-image-container">
+          <Image
+            alt={item.nombre}
+            src={item.imagen}
+            width={300}
+            height={300}
+            className="card-image"
+          />
+        </div>
+        <p className=" text-center text-base p-6 max-w-md">Leer más...</p>
+      </Link>
 
       <QtrSelector item={item} />
     </div>

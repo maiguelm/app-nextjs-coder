@@ -5,6 +5,8 @@ import { doc, setDoc } from "firebase/firestore"
 import { db, storage } from "@/firebase/config"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 import { useRouter } from "next/navigation"
+import { ToastContainer, toast } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const createProd = async (values, file) => {
@@ -16,7 +18,7 @@ const createProd = async (values, file) => {
 	return setDoc(docRef, {
 		...values,
 		imagen: fileURL
-	}).then(() => console.log("Producto agregado existosamente"))
+	}).then(() => toast("Producto agregado existosamente"))
 }
 
 const CreateForm = () => {
@@ -53,6 +55,7 @@ const CreateForm = () => {
 
 
 	return (
+		<>
 		<div className="flex justify-center">
 			<form className="w-full max-w-md" onSubmit={handleSubmit}>
 				<div className="md:flex md:items-center mb-6">
@@ -207,7 +210,7 @@ const CreateForm = () => {
 						<Button
 							className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
 							
-							onClick={() => router.push("/admin")}
+							onClick={() => router.push("/products/admin")}
 						>
 							Volver
 						</Button>
@@ -215,6 +218,8 @@ const CreateForm = () => {
 				</div>
 			</form>
 		</div>
+		<ToastContainer />
+		</>
 	);
 
 }

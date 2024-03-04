@@ -6,6 +6,8 @@ import { doc, updateDoc } from "firebase/firestore"
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
 import { Button } from "../ui/Button"
 import Link from "next/link"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const updateProduct = async (slug, values, file) => {
     let fileURL = values.imagen
@@ -26,7 +28,7 @@ const updateProduct = async (slug, values, file) => {
         precio: values.precio,
         categoria: values.categoria,
         imagen: fileURL,
-       }).then(() => console.log("Producto actualizado correctamente"))
+       }).then(() => toast('Producto editado existosamente'))
 }
 
 const EditForm = ({ item, slug }) => {
@@ -51,11 +53,12 @@ const EditForm = ({ item, slug }) => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         await updateProduct(slug, values, file)
-        router.push("/admin")
+        router.push("/products/admin")
         router.refresh() 
     }
 
     return (
+        <>
         <div className="container m-auto mt-6 max-w-lg">
             <form onSubmit={handleSubmit} className="my-12">
                 <label>Nombre: </label>
@@ -123,11 +126,13 @@ const EditForm = ({ item, slug }) => {
                 />
 
                 <Button type="submit">Modificar</Button>
-                <Link href="/admin">
+                <Link href="/products/admin">
                     <Button>Cancelar</Button>
                 </Link>
             </form>
         </div>
+        <ToastContainer />
+        </>
     )
 }
 

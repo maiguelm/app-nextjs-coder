@@ -33,7 +33,6 @@ export function CheckoutOrder() {
 		e.preventDefault();
 	
 		if (cart.length === 0) {
-			// Mostrar un toast indicando que el carrito está vacío
 			toast.error('El carrito está vacío');
 			return;
 		}

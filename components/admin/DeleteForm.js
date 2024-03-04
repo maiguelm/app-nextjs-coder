@@ -21,7 +21,7 @@ const DeleteForm = ({ item, slug }) => {
 
 	const handleDelete = () => {
 		deleteProduct(slug)
-		router.push("/admin")
+		router.back()
         router.refresh()
 	};
 

@@ -10,7 +10,7 @@ const ProductsAdmin = async () => {
 
     return (
         <>
-            <Link href="/admin/create" className="rounded bg-blue-600 p-2 text-white">
+            <Link href="/products/admin/create" className="rounded bg-blue-600 p-2 text-white">
                 Crear nuevo
             </Link>
             <div className="overflow-x-auto">
@@ -62,13 +62,13 @@ const ProductsAdmin = async () => {
                                 <td className="p-2 truncate max-w-prose">{item.descripcion}</td>
                                 <td className="p-2">
                                     <Link
-                                        href={`/admin/edit/${item.slug}`}
+                                        href={`/products/admin/edit/${item.slug}`}
                                         className="rounded bg-green-400 p-2 text-white"
                                     >
                                         Editar
                                     </Link>
                                     <Link
-                                        href={`/admin/delete/${item.slug}`}
+                                        href={`/products/admin/delete/${item.slug}`}
                                         className="rounded bg-red-400 p-2 text-white"
                                     >
                                         Eliminar
