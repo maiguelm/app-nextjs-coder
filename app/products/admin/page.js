@@ -7,9 +7,7 @@ const Admin = () => {
   return(
     <div>
       <h1 className="text-3xl text-center font-bold mb-4">Administracion de productos</h1>
-      {/* <Link href={'/products/admin/products'}> Ver productos</Link> */}
-      <ProductsAdmin />
-      <LogoutButton />
+     <Link href={'/products/admin/products'}> Ver productos</Link>
       
     </div>
   )

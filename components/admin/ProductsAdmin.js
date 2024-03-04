@@ -3,9 +3,10 @@ import Link from "next/link";
 
 
 const ProductsAdmin = async () => {
-    const data = await fetch(`${process.env.VERCEL_URL}/products/todos`, {
-        cache: "no-store",
-    }).then(r => r.json());
+    const apiUrl = "https://app-nextjs-coder.vercel.app/api"; 
+    const data = await fetch(`${apiUrl}/products/todos`, {
+      cache: "no-store",
+    }).then((r) => r.json());
 
 
     return (

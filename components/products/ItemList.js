@@ -2,7 +2,7 @@ import Item from "./Item";
 
 export const ItemList = async ({ categoria }) => {
 
-  const apiUrl = "https://app-nextjs-coder.vercel.app/api"; // Utiliza la URL base de tu API en Vercel
+  const apiUrl = "https://app-nextjs-coder.vercel.app/api"; 
   const items = await fetch(`${apiUrl}/products/${categoria}`, {
     cache: "no-store",
   }).then((r) => r.json());
